@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="QRC-gi-WgL" customClass="LoginView" customModule="OAuthWebViewUniversal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-zU-4pP">
+                    <rect key="frame" x="80" y="93" width="160" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="4MR-FQ-01g"/>
+                        <constraint firstAttribute="height" constant="30" id="7r9-5k-BKu"/>
+                    </constraints>
+                    <state key="normal" title="LogIn with Facebook">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onPressedFacebookLogin:" destination="QRC-gi-WgL" eventType="touchUpInside" id="CeO-H0-CDK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opi-GJ-8rw">
+                    <rect key="frame" x="80" y="160" width="160" height="30"/>
+                    <color key="backgroundColor" red="0.46248376029999999" green="0.56478031350000002" blue="0.72784329479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="yjw-Ji-JPa"/>
+                        <constraint firstAttribute="height" constant="30" id="zhT-MN-x5X"/>
+                    </constraints>
+                    <state key="normal" title="LogIn with Twitter">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onPressedTwitterLogin:" destination="QRC-gi-WgL" eventType="touchUpInside" id="VPH-xS-A8m"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhT-Y4-aed">
+                    <rect key="frame" x="80" y="230" width="160" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.052655856670000001" blue="0.074728360980000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8Q3-fL-w90"/>
+                        <constraint firstAttribute="width" constant="160" id="Hcd-Oz-Q0t"/>
+                    </constraints>
+                    <state key="normal" title="LogIn with Google">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onPressedGoogleLogin:" destination="QRC-gi-WgL" eventType="touchUpInside" id="8Vx-fh-a3n"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61J-p2-Kfa">
+                    <rect key="frame" x="80" y="300" width="160" height="30"/>
+                    <color key="backgroundColor" red="0.21205244270000001" green="0.84356784330000001" blue="0.232270158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Zy9-fU-i1U"/>
+                        <constraint firstAttribute="width" constant="160" id="rT2-I7-IrZ"/>
+                    </constraints>
+                    <state key="normal" title="LogIn with Instagram">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onPressedInstagramLogin:" destination="QRC-gi-WgL" eventType="touchUpInside" id="2g4-KP-CJe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Opi-GJ-8rw" firstAttribute="top" secondItem="jPT-zU-4pP" secondAttribute="bottom" constant="37" id="1w2-zR-rSs"/>
+                <constraint firstItem="AhT-Y4-aed" firstAttribute="top" secondItem="Opi-GJ-8rw" secondAttribute="bottom" constant="40" id="6yi-3d-GO6"/>
+                <constraint firstItem="jPT-zU-4pP" firstAttribute="top" secondItem="QRC-gi-WgL" secondAttribute="top" constant="93" id="GO0-B2-yEe"/>
+                <constraint firstItem="61J-p2-Kfa" firstAttribute="centerX" secondItem="QRC-gi-WgL" secondAttribute="centerX" id="LwD-hZ-dKw"/>
+                <constraint firstItem="61J-p2-Kfa" firstAttribute="top" secondItem="AhT-Y4-aed" secondAttribute="bottom" constant="40" id="Qh8-77-Edl"/>
+                <constraint firstItem="AhT-Y4-aed" firstAttribute="centerX" secondItem="QRC-gi-WgL" secondAttribute="centerX" id="dMA-aa-Ott"/>
+                <constraint firstItem="Opi-GJ-8rw" firstAttribute="centerX" secondItem="QRC-gi-WgL" secondAttribute="centerX" id="geg-pv-aGt"/>
+                <constraint firstItem="jPT-zU-4pP" firstAttribute="centerX" secondItem="QRC-gi-WgL" secondAttribute="centerX" id="tAS-U7-xzm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="239" y="-71"/>
+        </view>
+    </objects>
+</document>
