@@ -11,7 +11,7 @@ import WebKit
 
 typealias WebViewViewControllerType = BaseViewController<WebViewModelProtocol, WebViewViewProtocol, WebViewRouter>
 
-class WebViewViewController: WebViewViewControllerType, UIWebViewDelegate  {
+class WebViewViewController: WebViewViewControllerType, WKNavigationDelegate  {
     
     // MARK: Initializers
     
@@ -26,31 +26,24 @@ class WebViewViewController: WebViewViewControllerType, UIWebViewDelegate  {
         
         customView.delegate = self
         model.delegate = self
-        registerDefaults()
-        self.customView.webView.delegate = self
+        self.customView.webView.navigationDelegate = self
         unSignedRequest()
-    }
-    
-    func registerDefaults() {
-        let dictionaty = NSDictionary(object: "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36", forKey: "UserAgent" as NSCopying)
-        UserDefaults.standard.register(defaults: dictionaty as! [String : Any])
     }
     
     func unSignedRequest () {
         let urlRequest =  URLRequest(url: self.model.url)
-        self.customView.webView.loadRequest(urlRequest)
+        self.customView.webView.load(urlRequest)
     }
     
-    func checkRequestForCallbackURL(request: URLRequest) -> Bool {
+    func checkRequestForCallbackURL(action: WKNavigationAction) {
         
-        let requestURLString = (request.url?.absoluteString)! as String
+        let requestURLString = (action.request.url?.absoluteString)! as String
+    //    let requestURLString = (request.url?.absoluteString)! as String
         
         if requestURLString.hasPrefix(SOCIAL.REDIRECT_URI) {
             let range: Range<String.Index> = requestURLString.range(of: "#access_token=")!
             handleAuth(authToken: requestURLString.substring(from: range.upperBound))
-            return false;
         }
-        return true
     }
     
     func handleAuth(authToken: String)  {
@@ -67,23 +60,29 @@ class WebViewViewController: WebViewViewControllerType, UIWebViewDelegate  {
     
     // MARK: - UIWebViewDelegate
     
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        return checkRequestForCallbackURL(request: request)
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if (navigationAction.navigationType == .linkActivated) {
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+            checkRequestForCallbackURL(action: navigationAction)
+
+        }
     }
     
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         self.customView.indicator.isHidden = false
         self.customView.indicator.startAnimating()
     }
 
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.customView.indicator.isHidden = true
         self.customView.indicator.stopAnimating()
     }
     
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        webViewDidFinishLoad(webView)
-    }
+//    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+//        webView(webView, didFinish: navigation)
+//    }
 }
 
 // MARK: - WebViewViewDelegate

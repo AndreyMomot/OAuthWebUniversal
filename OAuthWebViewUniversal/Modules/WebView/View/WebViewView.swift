@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 protocol WebViewViewDelegate: NSObjectProtocol {
     
@@ -17,7 +18,7 @@ protocol WebViewViewProtocol: NSObjectProtocol {
     
     weak var delegate: WebViewViewDelegate? { get set }
     weak var indicator: UIActivityIndicatorView! { get }
-    weak var webView: UIWebView! { get }
+    weak var webView: WKWebView! { get }
 }
 
 class WebViewView: UIView, WebViewViewProtocol{
@@ -26,8 +27,9 @@ class WebViewView: UIView, WebViewViewProtocol{
 
     weak public var delegate: WebViewViewDelegate?
     
+    @IBOutlet var webView: WKWebView!
     @IBOutlet var indicator: UIActivityIndicatorView!
-    @IBOutlet var webView: UIWebView!
+    
     // MARK: - Overrided methods
 
     override public func awakeFromNib() {
