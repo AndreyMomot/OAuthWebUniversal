@@ -22,7 +22,7 @@ struct SOCIAL {
     
     // MARK: - GOOGLE
     static let GOOGLE_AUTHURL = "https://accounts.google.com/o/oauth2/auth"
-    static let GOOGLE_CLIENT_ID = "68328860856-dse74m20ph3s0hket8lmqlq574d984o8.apps.googleusercontent.com"
+    static let GOOGLE_CLIENT_ID = "68328860856-49jmu962guog7gbn6tjvuv76dof0ji45.apps.googleusercontent.com"
     static let GOOGLE_SCOPE = "profile+email"
     //  static let GOOGLE_CLIENTSERCRET = "ECnq8ufuEL5ENz1oj1j9-viM"
     //   static let GOOGLE_ACCESS_TOKEN =  "access_token"
@@ -40,4 +40,19 @@ struct SOCIAL {
     static let TWITTER_SCOPE = "profile"
     //   static let TWITTER_CLIENTSERCRET = "UWuK8ZFIEoubmR2FsFaSgvkS2dtHlGue86vKgsyrlBq72sPfGH"
     //  static let TWITTER_ACCESS_TOKEN =  "907573014287482880-ZTtQXY0TqmcqvUjRI5IIM9PY6pnRkUq"
+    
+    // MARK: - WEIBO
+    static let WEIBO_AUTHURL = "https://api.weibo.com/oauth2/authorize"
+    static let WEIBO_Client_ID = ""
+    static let WEIBO_SCOPE = "user"
+    
+    // MARK: - WECHAT
+    static let WECHAT_AUTHURL = ""
+    static let WECHAT_Client_ID = ""
+    static let WECHAT_SCOPE = ""
+    
+    // MARK: - QQ
+    static let QQ_AUTHURL = ""
+    static let QQ_Client_ID = ""
+    static let QQ_SCOPE = ""
 }
